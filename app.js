@@ -29,13 +29,58 @@ addBook(book2);
 addBook(book3);
 
 function render() {
+  let id = 0;
   library.forEach(book => {
-    console.log(book);
-    console.log(book.title);
-    console.log(book.author);
-    console.log(book.pages);
-    console.log(book.read);
-    console.log(book.info());
+    id++;
+
+    let container = document.getElementById("container");
+
+    // Create Div for every book
+    let bookDiv = document.createElement("div");
+    bookDiv.className = "book-div";
+    bookDiv.id = `book${id}`;
+
+    container.appendChild(bookDiv);
+
+    // Create title
+    let titleTag = document.createElement("h2");
+    let titleText = document.createTextNode(book.title);
+
+    titleTag.appendChild(titleText);
+
+    bookDiv.appendChild(titleTag);
+
+    // Create author
+    let authorTag = document.createElement("p");
+    let authorText = document.createTextNode(book.author);
+
+    authorTag.appendChild(authorText);
+
+    bookDiv.appendChild(authorTag);
+
+    // Create pages
+    let pagesTag = document.createElement("p");
+    let pagesText = document.createTextNode(`Pages: ${book.pages}`);
+
+    pagesTag.appendChild(pagesText);
+
+    bookDiv.appendChild(pagesTag);
+
+    // Create pages
+    let readTag = document.createElement("p");
+    let readText = document.createTextNode(`Read: ${book.read}`);
+
+    readTag.appendChild(readText);
+
+    bookDiv.appendChild(readTag);
+
+    // Create info
+    let infoTag = document.createElement("p");
+    let infoText = document.createTextNode(book.info());
+
+    infoTag.appendChild(infoText);
+
+    bookDiv.appendChild(infoTag);
   });
 };
 
