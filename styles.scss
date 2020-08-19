@@ -47,8 +47,15 @@ table {
 	border-spacing: 0;
 }
 
+$dark-gray: rgb(41, 41, 41);
+$medium-gray: rgb(119, 119, 119);
+
 body {
-  background-color: rgb(41, 41, 41);
+  background-color: $dark-gray;
+}
+
+* {
+  font-family: 'Kodchasan', sans-serif;
 }
 
 h1, h2, h3, h4, h5, h6, p, div, span, ul, ol, li {
@@ -63,4 +70,60 @@ h1, h2, h3, h4, h5, h6, p, div, span, ul, ol, li {
 
 .book-div {
   border: 3px solid rgb(0, 0, 0);
+}
+
+// Pop up form
+#pop-up {
+  border: 3px solid white;
+  background-color: black;
+  width: fit-content;
+  display: grid;
+  align-items: center;
+  justify-items: center;
+  padding: 20px;
+  position: absolute;
+  top: 30%;
+  right: 40%;
+}
+
+#pu-title {
+  font-size: 40px;
+  margin-bottom: 20px;
+}
+
+.label {
+  font-size: 20px;
+  margin: 7px 0 7px 0;
+}
+
+.pu-input {
+  background-color: $dark-gray;
+  border: 3px solid $medium-gray;
+  width: 100%;
+  height: 30px;
+  color: white;
+  font-size: 20px;
+  padding-left: 7px;
+}
+
+.pu-input:hover {
+  border: 3px solid white;
+}
+
+#pu-btn {
+  width: 100%;
+  background-color: black;
+  color: $medium-gray;
+  border: 3px solid $medium-gray;
+  padding: 10px 0 10px 0;
+  font-weight: 900;
+  font-size: 20px;
+  margin-top: 20px;
+  border-radius: 20px;
+}
+
+#pu-btn:hover {
+  background-color: white;
+  color: black;
+  border: 3px solid white;
 }
