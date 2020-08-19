@@ -1,4 +1,17 @@
 let library = [];
+let newBtn = document.getElementById("nb-btn");
+let popUp = document.getElementById("pu-container");
+let closePU = document.getElementById("close");
+
+// Open pop up form
+newBtn.addEventListener("click", function() {
+  popUp.style.display = "block";
+});
+
+// Close pop up form
+closePU.addEventListener("click", function() {
+  popUp.style.display = "none";
+});
 
 function Book(title, author, pages, read) {
   this.title = title;

@@ -49,6 +49,8 @@ table {
 
 $dark-gray: rgb(41, 41, 41);
 $medium-gray: rgb(119, 119, 119);
+$blue: rgb(0, 78, 68);
+$hov-blue: rgb(0, 97, 84);
 
 body {
   background-color: $dark-gray;
@@ -62,10 +64,41 @@ h1, h2, h3, h4, h5, h6, p, div, span, ul, ol, li {
   color: white;
 }
 
+// Header
+#header {
+  background-color: black;
+  padding: 20px 0 20px 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+}
+
+#header-title {
+  margin-left: 30px;
+}
+
+#nb-btn {
+  background-color: $blue;
+  border: 3px solid $blue;
+  border: 0px;
+  color: white;
+  padding: 10px;
+  font-size: 20px;
+  border-radius: 10px;
+  justify-self: end;
+  margin-right: 30px;
+  outline: none;
+}
+
+#nb-btn:hover {
+  background-color: $hov-blue;
+}
+
 #container {
   border: 1px solid red;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
+  margin-top: 20px;
 }
 
 .book-div {
@@ -73,6 +106,13 @@ h1, h2, h3, h4, h5, h6, p, div, span, ul, ol, li {
 }
 
 // Pop up form
+#pu-container {
+  display: none;
+  position: absolute;
+  top: 30%;
+  right: 40%;
+}
+
 #pop-up {
   border: 3px solid white;
   background-color: black;
@@ -81,9 +121,27 @@ h1, h2, h3, h4, h5, h6, p, div, span, ul, ol, li {
   align-items: center;
   justify-items: center;
   padding: 20px;
-  position: absolute;
-  top: 30%;
-  right: 40%;
+}
+
+#close-div {
+  display: grid;
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+#close {
+  text-decoration: none;
+  color: white;
+  font-size: 30px;
+  display: block;
+  justify-self: end;
+  background: rgba(0, 0, 0, 0.0);
+  border: 0px;
+  outline: none;
+}
+
+#close:hover {
+  color: rgb(163, 0, 0);
 }
 
 #pu-title {
@@ -99,7 +157,7 @@ h1, h2, h3, h4, h5, h6, p, div, span, ul, ol, li {
 .pu-input {
   background-color: $dark-gray;
   border: 3px solid $medium-gray;
-  width: 100%;
+  width: 90%;
   height: 30px;
   color: white;
   font-size: 20px;
@@ -111,19 +169,17 @@ h1, h2, h3, h4, h5, h6, p, div, span, ul, ol, li {
 }
 
 #pu-btn {
-  width: 100%;
-  background-color: black;
-  color: $medium-gray;
-  border: 3px solid $medium-gray;
+  width: 90%;
+  background-color: $blue;
+  color: white;
+  border: 3px solid $blue;
   padding: 10px 0 10px 0;
   font-weight: 900;
   font-size: 20px;
   margin-top: 20px;
-  border-radius: 20px;
+  border-radius: 10px;
 }
 
 #pu-btn:hover {
-  background-color: white;
-  color: black;
-  border: 3px solid white;
+  background-color: $hov-blue;
 }

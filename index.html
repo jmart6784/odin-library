@@ -8,22 +8,34 @@
   <title>Book Constructor</title>
 </head>
 <body>
-  <div id="pop-up">
-    <h1 id="pu-title">Create a New Book</h1>
 
-    <p class="label">Title:</p>
-    <input type="text" class="pu-input">
+  <div id="pu-container">
+    <div id="pop-up">
+      <div id="close-div">
+        <button href="#" id="close">X</button>
+      </div>
+      
+      <h1 id="pu-title">Create a New Book</h1>
+  
+      <p class="label">Title:</p>
+      <input type="text" class="pu-input">
+  
+      <p class="label">Author:</p>
+      <input type="text" class="pu-input">
+  
+      <p class="label">Pages:</p>
+      <input type="text" class="pu-input">
+  
+      <p class="label">Read before?</p>
+      <input type="checkbox">
+  
+      <button id="pu-btn">Create</button>
+    </div>
+  </div>
 
-    <p class="label">Author:</p>
-    <input type="text" class="pu-input">
-
-    <p class="label">Pages:</p>
-    <input type="text" class="pu-input">
-
-    <p class="label">Read before?</p>
-    <input type="checkbox">
-
-    <button id="pu-btn">Submit</button>
+  <div id="header">
+    <h1 id="header-title">Odin Library</h1>
+    <button id="nb-btn">+ New Book</button>
   </div>
 
   <div id="container">
