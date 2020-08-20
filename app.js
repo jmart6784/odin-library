@@ -70,13 +70,17 @@ function render() {
     let titleTag = document.createElement("h2");
     let titleText = document.createTextNode(book.title);
 
+    titleTag.className = "book-title";
+
     titleTag.appendChild(titleText);
 
     bookDiv.appendChild(titleTag);
 
     // Create author
     let authorTag = document.createElement("p");
-    let authorText = document.createTextNode(book.author);
+    let authorText = document.createTextNode(`By ${book.author}`);
+
+    authorTag.className = "info-text";
 
     authorTag.appendChild(authorText);
 
@@ -84,7 +88,9 @@ function render() {
 
     // Create pages
     let pagesTag = document.createElement("p");
-    let pagesText = document.createTextNode(`Pages: ${book.pages}`);
+    let pagesText = document.createTextNode(`${book.pages} pages long`);
+
+    pagesTag.className = "info-text";
 
     pagesTag.appendChild(pagesText);
 
@@ -94,17 +100,11 @@ function render() {
     let readTag = document.createElement("p");
     let readText = document.createTextNode(`Read: ${book.read}`);
 
+    readTag.className = "info-text";
+
     readTag.appendChild(readText);
 
     bookDiv.appendChild(readTag);
-
-    // Create info
-    let infoTag = document.createElement("p");
-    let infoText = document.createTextNode(book.info());
-
-    infoTag.appendChild(infoText);
-
-    bookDiv.appendChild(infoTag);
   });
 };
 
