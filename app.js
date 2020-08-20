@@ -2,6 +2,8 @@ let library = [];
 let newBtn = document.getElementById("nb-btn");
 let popUp = document.getElementById("pu-container");
 let closePU = document.getElementById("close");
+let submitBtn = document.getElementById("pu-btn");
+let errorMsg = document.getElementById("error");
 
 // Open pop up form
 newBtn.addEventListener("click", function() {
@@ -12,6 +14,15 @@ newBtn.addEventListener("click", function() {
 closePU.addEventListener("click", function() {
   popUp.style.display = "none";
 });
+
+// Flash error msg
+function flashError() {
+  errorMsg.style.display = "block";
+
+  setTimeout(function() {
+    errorMsg.style.display = "none";
+  }, 3000);
+};
 
 function Book(title, author, pages, read) {
   this.title = title;
@@ -98,3 +109,18 @@ function render() {
 };
 
 render();
+
+submitBtn.addEventListener("click", function() {
+  let title = document.getElementById("title-input").value;
+  let author = document.getElementById("author-input").value;
+  let pages = document.getElementById("pages-input").value;
+
+  if (title !== "" && author !== "" && pages !== "") {
+    console.log(`TITLE: ${title}`);
+    console.log(`AUTHOR: ${author}`);
+    console.log(`PAGES: ${pages}`);
+  } else {
+    console.log("EMPTY");
+    flashError();
+  };
+});

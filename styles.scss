@@ -64,6 +64,16 @@ h1, h2, h3, h4, h5, h6, p, div, span, ul, ol, li {
   color: white;
 }
 
+// Error msg
+#error {
+  background-color: rgb(94, 0, 0);
+  font-size: 20px;
+  padding: 10px 0 10px 0;
+  text-align: center;
+  font-weight: 900;
+  display: none;
+}
+
 // Header
 #header {
   background-color: black;
