@@ -52,6 +52,7 @@ $medium-gray: rgb(119, 119, 119);
 $blue: rgb(0, 78, 68);
 $hov-blue: rgb(0, 97, 84);
 $danger: rgb(94, 0, 0);
+$hov-danger: rgb(128, 0, 0);
 
 body {
   background-color: $dark-gray;
@@ -130,8 +131,38 @@ h1, h2, h3, h4, h5, h6, p, div, span, ul, ol, li {
   font-size: 20px;
 }
 
-.rm-book {
+.read-btn {
   background-color: $blue;
+  border: 3px solid $blue;
+  color: rgb(148, 145, 145);
+  width: 100%;
+  font-size: 25px;
+  font-weight: 900;
+  padding: 10px 0 10px 0;
+}
+
+.read-btn:hover {
+  background-color: $hov-blue;
+  color: white;
+}
+
+.not-read-btn {
+  background-color: black;
+  border: 3px solid rgb(90, 90, 90);
+  color: $blue;
+  width: 100%;
+  font-size: 25px;
+  font-weight: 900;
+  padding: 10px 0 10px 0;
+}
+
+.not-read-btn:hover {
+  border: 3px solid white;
+  color: $hov-blue;
+}
+
+.rm-book {
+  background-color: $danger;
   border: 0px;
   color: rgb(148, 145, 145);
   width: 100%;
@@ -141,7 +172,7 @@ h1, h2, h3, h4, h5, h6, p, div, span, ul, ol, li {
 }
 
 .rm-book:hover {
-  background-color: $danger;
+  background-color: $hov-danger;
   color: white;
 }
 

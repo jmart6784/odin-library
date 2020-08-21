@@ -132,8 +132,38 @@ h1, h2, h3, h4, h5, h6, p, div, span, ul, ol, li {
   font-size: 20px;
 }
 
-.rm-book {
+.read-btn {
   background-color: #004e44;
+  border: 3px solid #004e44;
+  color: #949191;
+  width: 100%;
+  font-size: 25px;
+  font-weight: 900;
+  padding: 10px 0 10px 0;
+}
+
+.read-btn:hover {
+  background-color: #006154;
+  color: white;
+}
+
+.not-read-btn {
+  background-color: black;
+  border: 3px solid #5a5a5a;
+  color: #004e44;
+  width: 100%;
+  font-size: 25px;
+  font-weight: 900;
+  padding: 10px 0 10px 0;
+}
+
+.not-read-btn:hover {
+  border: 3px solid white;
+  color: #006154;
+}
+
+.rm-book {
+  background-color: #5e0000;
   border: 0px;
   color: #949191;
   width: 100%;
@@ -143,7 +173,7 @@ h1, h2, h3, h4, h5, h6, p, div, span, ul, ol, li {
 }
 
 .rm-book:hover {
-  background-color: #5e0000;
+  background-color: maroon;
   color: white;
 }
 

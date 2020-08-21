@@ -103,7 +103,7 @@ function render() {
 
     bookDiv.appendChild(pagesTag);
 
-    // Create pages
+    // Create read
     let readTag = document.createElement("p");
     let readText = document.createTextNode(`Read: ${book.read}`);
 
@@ -113,27 +113,63 @@ function render() {
 
     bookDiv.appendChild(readTag);
 
+    // Create read or not read button
+    let btnTxt = "";
+    let readBtn = document.createElement("button");
+
+    if (book.read === true) {
+      btnTxt = "Read"
+      readBtn.className = "read-btn";
+    } else {
+      btnTxt = "Not Read"
+      readBtn.className = "not-read-btn";
+    };
+
+    let rBtnText = document.createTextNode(btnTxt);
+  
+    readBtn.appendChild(rBtnText);
+
+    bookDiv.appendChild(readBtn);
+
+    // Change Read state and render
+    readBtn.onclick = function() {
+      if (book.read === true) {
+        book.read = false;
+        render();
+      } else {
+        book.read = true;
+        render();
+      };
+    };
+
     // Add Delete button
-    Array.prototype.remove = function(index) {
-      this.splice(this.indexOf(index), 1);
+    Array.prototype.remove = function(value) {
+      this.splice(this.indexOf(value), 1);
     };
 
     let deleteTag = document.createElement("button");
     let deleteText = document.createTextNode(`Remove`);
 
-    let idNum = id;
-
     deleteTag.className = "rm-book";
+
     deleteTag.onclick = function() {
-      console.log(`ID: ${idNum}`);
       library.remove(book);
-      console.log(library);
       render();
     };
 
     deleteTag.appendChild(deleteText);
 
     bookDiv.appendChild(deleteTag);
+
+    // ID
+    let idTag = document.createElement("p");
+    let idText = document.createTextNode(`ID: ${id}`);
+
+    idTag.className = "info-text";
+
+    idTag.appendChild(idText);
+
+    bookDiv.appendChild(idTag);
     
     id++;
   });
