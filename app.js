@@ -24,6 +24,7 @@ function flashError() {
   }, 3000);
 };
 
+// Book Object
 function Book(title, author, pages, read) {
   this.title = title;
   this.author = author;
@@ -40,6 +41,7 @@ function Book(title, author, pages, read) {
   };
 };
 
+// Add Book to library
 function addBook(book) {
   library.push(book);
 };
@@ -52,11 +54,16 @@ addBook(book1);
 addBook(book2);
 addBook(book3);
 
+function deleteBook(id) {
+  
+};
+
 function render() {
+  // Remove all previous renders so there are no accidental duplicates
+  document.querySelectorAll(".book-div").forEach( book => book.remove() )
+
   let id = 0;
   library.forEach(book => {
-    id++;
-
     let container = document.getElementById("container");
 
     // Create Div for every book
@@ -105,20 +112,45 @@ function render() {
     readTag.appendChild(readText);
 
     bookDiv.appendChild(readTag);
+
+    // Add Delete button
+    Array.prototype.remove = function(index) {
+      this.splice(this.indexOf(index), 1);
+    };
+
+    let deleteTag = document.createElement("button");
+    let deleteText = document.createTextNode(`Remove`);
+
+    let idNum = id;
+
+    deleteTag.className = "rm-book";
+    deleteTag.onclick = function() {
+      console.log(`ID: ${idNum}`);
+      library.remove(book);
+      console.log(library);
+      render();
+    };
+
+    deleteTag.appendChild(deleteText);
+
+    bookDiv.appendChild(deleteTag);
+    
+    id++;
   });
 };
 
 render();
 
 submitBtn.addEventListener("click", function() {
-  let title = document.getElementById("title-input").value;
-  let author = document.getElementById("author-input").value;
-  let pages = document.getElementById("pages-input").value;
+  let title1 = document.getElementById("title-input").value;
+  let author1 = document.getElementById("author-input").value;
+  let pages1 = document.getElementById("pages-input").value;
+  let read1 = document.getElementById("read-input").checked;
 
-  if (title !== "" && author !== "" && pages !== "") {
-    console.log(`TITLE: ${title}`);
-    console.log(`AUTHOR: ${author}`);
-    console.log(`PAGES: ${pages}`);
+  if (title1 !== "" && author1 !== "" && pages1 !== "") {
+    book = new Book(title1, author1, pages1, read1)
+    addBook(book);
+    render();
   } else {
     console.log("EMPTY");
     flashError();

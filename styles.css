@@ -106,7 +106,7 @@ h1, h2, h3, h4, h5, h6, p, div, span, ul, ol, li {
 }
 
 #container {
-  border: 1px solid red;
+  border: 1px solid #002fca;
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: 1fr 1fr 1fr;
@@ -128,14 +128,29 @@ h1, h2, h3, h4, h5, h6, p, div, span, ul, ol, li {
 }
 
 .info-text {
-  margin: 10px 0 10px 10px;
+  margin: 25px 0 25px 10px;
   font-size: 20px;
+}
+
+.rm-book {
+  background-color: #004e44;
+  border: 0px;
+  color: #949191;
+  width: 100%;
+  font-size: 25px;
+  font-weight: 900;
+  padding: 10px 0 10px 0;
+}
+
+.rm-book:hover {
+  background-color: #5e0000;
+  color: white;
 }
 
 #pu-container {
   display: none;
   position: absolute;
-  top: 30%;
+  top: 25%;
   right: 40%;
 }
 
@@ -174,7 +189,7 @@ h1, h2, h3, h4, h5, h6, p, div, span, ul, ol, li {
 }
 
 #close:hover {
-  color: #a30000;
+  color: #5e0000;
 }
 
 #pu-title {
