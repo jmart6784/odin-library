@@ -113,6 +113,7 @@ h1, h2, h3, h4, h5, h6, p, div, span, ul, ol, li {
       grid-template-columns: 1fr 1fr 1fr;
   -webkit-column-gap: 50px;
           column-gap: 50px;
+  row-gap: 50px;
   margin-top: 20px;
   padding: 0 50px 0 50px;
 }
@@ -179,13 +180,12 @@ h1, h2, h3, h4, h5, h6, p, div, span, ul, ol, li {
 
 #pu-container {
   display: none;
-  position: absolute;
+  position: fixed;
   top: 25%;
   right: 40%;
 }
 
 #pop-up {
-  border: 3px solid white;
   background-color: black;
   width: -webkit-fit-content;
   width: -moz-fit-content;
