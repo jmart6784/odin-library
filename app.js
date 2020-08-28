@@ -73,6 +73,7 @@ function addBook(book) {
   library = [];
 };
 
+// Render library with html
 function render() {
   
   if (localStorage.getItem("library") !== null) {
@@ -82,8 +83,6 @@ function render() {
     let id = 0;
 
     JSON.parse(localStorage.getItem("library")).forEach(book => {
-      // let desBook = JSON.parse(book);
-      let desBook = book;
 
       let container = document.getElementById("container");
 
@@ -96,7 +95,7 @@ function render() {
 
       // Create title
       let titleTag = document.createElement("h2");
-      let titleText = document.createTextNode(desBook.title);
+      let titleText = document.createTextNode(book.title);
 
       titleTag.className = "book-title";
 
@@ -106,7 +105,7 @@ function render() {
 
       // Create author
       let authorTag = document.createElement("p");
-      let authorText = document.createTextNode(`By ${desBook.author}`);
+      let authorText = document.createTextNode(`By ${book.author}`);
 
       authorTag.className = "info-text";
 
@@ -116,7 +115,7 @@ function render() {
 
       // Create pages
       let pagesTag = document.createElement("p");
-      let pagesText = document.createTextNode(`${desBook.pages} pages long`);
+      let pagesText = document.createTextNode(`${book.pages} pages long`);
 
       pagesTag.className = "info-text";
 
@@ -126,7 +125,7 @@ function render() {
 
       // Create read
       let readTag = document.createElement("p");
-      let readText = document.createTextNode(`Read: ${desBook.read}`);
+      let readText = document.createTextNode(`Read: ${book.read}`);
 
       readTag.className = "info-text";
 
@@ -138,7 +137,7 @@ function render() {
       let btnTxt = "";
       let readBtn = document.createElement("button");
 
-      if (desBook.read === true) {
+      if (book.read === true) {
         btnTxt = "Read"
         readBtn.className = "read-btn";
       } else {
@@ -154,11 +153,65 @@ function render() {
 
       // Change Read state and render
       readBtn.onclick = function() {
-        if (desBook.read === true) {
-          desBook.read = false;
+        if (book.read === true) {
+          let bookHolder = [];
+          library = [];
+
+          // Place all books from local storage in bookHolder array
+          JSON.parse(localStorage.getItem("library")).forEach( lib => {
+            bookHolder.push(lib);
+          });
+
+          // Loop through the books and change read state on matched book
+          bookHolder.forEach( b => {
+            if (
+              b.title === book.title &&
+              b.author === book.author &&
+              b.pages === book.pages &&
+              b.read === book.read
+            ) {
+              // Change read to false and place in library array
+              b.read = false;
+              library.push(b);
+            } else {
+              // Place a book that was not matched in library array
+              library.push(b);
+            };
+          });
+
+          // Save library array and render updated html again
+          localStorage.setItem("library", JSON.stringify(library));
+          library = [];
           render();
         } else {
-          desBook.read = true;
+          let bookHolder = [];
+          library = [];
+
+          // Place all books from local storage in bookHolder array
+          JSON.parse(localStorage.getItem("library")).forEach( lib => {
+            bookHolder.push(lib);
+          });
+
+          // Loop through the books and change read state on matched book
+          bookHolder.forEach( b => {
+            if (
+              b.title === book.title &&
+              b.author === book.author &&
+              b.pages === book.pages &&
+              b.read === book.read
+            ) {
+              // Change read to true and place in library array
+              b.read = true;
+              library.push(b);
+            } else {
+              // Place a book that was not matched in library array
+              library.push(b);
+            };
+          });
+
+          // Save library array and render updated html again
+          localStorage.setItem("library", JSON.stringify(library));
+          library = [];
           render();
         };
       };
@@ -174,7 +227,7 @@ function render() {
       deleteTag.className = "rm-book";
 
       deleteTag.onclick = function() {
-        library.remove(desBook);
+        library.remove(book);
         render();
       };
 
