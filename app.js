@@ -217,33 +217,43 @@ function render() {
       };
 
       // Add Delete button
-      Array.prototype.remove = function(value) {
-        this.splice(this.indexOf(value), 1);
-      };
-
       let deleteTag = document.createElement("button");
       let deleteText = document.createTextNode(`Remove`);
 
       deleteTag.className = "rm-book";
 
       deleteTag.onclick = function() {
-        library.remove(book);
+        library = [];
+        let temp = [];
+
+        // Load local storage library
+        JSON.parse(localStorage.getItem("library")).forEach( b => {
+          temp.push(b);
+        });
+
+        // Book is excluded from library if it matches or else it is pushed
+        temp.forEach( b => {
+          if (
+            b.title === book.title &&
+            b.author === book.author &&
+            b.pages === book.pages &&
+            b.read === book.read
+          ) {
+            null
+          } else {
+            library.push(b);
+          };
+        });
+
+        // Save library without including the deleted value, reset arrays and render again
+        localStorage.setItem("library", JSON.stringify(library));
+        library = [];
         render();
       };
 
       deleteTag.appendChild(deleteText);
 
       bookDiv.appendChild(deleteTag);
-
-      // ID
-      let idTag = document.createElement("p");
-      let idText = document.createTextNode(`ID: ${id}`);
-
-      idTag.className = "info-text";
-
-      idTag.appendChild(idText);
-
-      bookDiv.appendChild(idTag);
       
       id++;
     });
