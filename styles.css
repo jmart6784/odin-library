@@ -106,7 +106,6 @@ h1, h2, h3, h4, h5, h6, p, div, span, ul, ol, li {
 }
 
 #container {
-  border: 1px solid #002fca;
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: 1fr 1fr 1fr;
@@ -260,5 +259,24 @@ h1, h2, h3, h4, h5, h6, p, div, span, ul, ol, li {
 
 #pu-btn:hover {
   background-color: #006154;
+}
+
+#nb-hide {
+  display: none;
+}
+
+#no-books-div {
+  text-align: center;
+  height: 80vh;
+  display: -ms-grid;
+  display: grid;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  justify-items: center;
+}
+
+#nb-title {
+  font-size: 100px;
 }
 /*# sourceMappingURL=styles.css.map */

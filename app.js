@@ -75,8 +75,9 @@ function addBook(book) {
 
 // Render library with html
 function render() {
-  
-  if (localStorage.getItem("library") !== null) {
+  if (localStorage.getItem("library") !== "[]") {
+    document.getElementById("nb-hide").style.display = "none";
+
     // Remove all previous renders so there are no accidental duplicates
     document.querySelectorAll(".book-div").forEach( book => book.remove() )
 
@@ -249,6 +250,10 @@ function render() {
         localStorage.setItem("library", JSON.stringify(library));
         library = [];
         render();
+
+        if (JSON.parse(localStorage.getItem("library")).length === 0) {
+          location.reload();
+        };
       };
 
       deleteTag.appendChild(deleteText);
@@ -258,7 +263,7 @@ function render() {
       id++;
     });
   } else {
-    console.log("EMPTY LIBRARY");
+    document.getElementById("nb-hide").style.display = "block";
   };
 };
 

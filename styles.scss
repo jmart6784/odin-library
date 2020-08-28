@@ -107,7 +107,6 @@ h1, h2, h3, h4, h5, h6, p, div, span, ul, ol, li {
 }
 
 #container {
-  border: 1px solid rgb(0, 47, 202);
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   column-gap: 50px;
@@ -253,4 +252,21 @@ h1, h2, h3, h4, h5, h6, p, div, span, ul, ol, li {
 
 #pu-btn:hover {
   background-color: $hov-blue;
+}
+
+// No in library books message
+#nb-hide {
+  display: none;
+}
+
+#no-books-div {
+  text-align: center;
+  height: 80vh;
+  display: grid;
+  align-items: center;
+  justify-items: center;
+}
+
+#nb-title {
+  font-size: 100px;
 }
