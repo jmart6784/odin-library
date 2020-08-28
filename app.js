@@ -278,6 +278,12 @@ submitBtn.addEventListener("click", function() {
   if (title1 !== "" && author1 !== "" && pages1 !== "") {
     book = new Book(title1, author1, pages1, read1);
 
+    // clear form
+    document.getElementById("title-input").value = "";
+    document.getElementById("author-input").value = "";
+    document.getElementById("pages-input").value = "";
+    document.getElementById("read-input").checked = false;
+
     addBook(book);
     render();
   } else {
