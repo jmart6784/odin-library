@@ -1,6 +1,8 @@
 let library = [];
 
-// localStorage.removeItem("library");
+if (JSON.parse(localStorage.getItem("library")) === null) {
+  localStorage.setItem("library", JSON.stringify([]));
+};
 
 let newBtn = document.getElementById("nb-btn");
 let popUp = document.getElementById("pu-container");
